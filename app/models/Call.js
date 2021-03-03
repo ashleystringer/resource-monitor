@@ -6,6 +6,7 @@ const schema = new Schema({
     end_time: {type: Date, required: true},
     method_name: {type: String, required: true},
     resource_type: {type: String, required: true}
+    //thread: {type: ObjectId, required: true}
 });
 
 module.exports = mongodb.resource('call', schema);
