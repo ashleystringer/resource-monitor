@@ -11,12 +11,12 @@ module.exports = ResourceController.extend ({
   name: 'test',
   Call: model('call'),
   init(){
-    console.log("Hello");
+    console.log("Init");
   },
   getAll(){
     return Action.extend({
       execute(req, res){
-          console.log("Hello ya'll");
+          console.log("getAll");
           //Call
       }
     });
