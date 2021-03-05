@@ -1,7 +1,9 @@
 const {
   ResourceController,
   Action,
-  model
+  model,
+  models,
+  service
 } = require ('@onehilltech/blueprint');
 
 /**
@@ -10,14 +12,22 @@ const {
 module.exports = ResourceController.extend ({
   name: 'test',
   Call: model('call'),
+  tests: service(),
   init(){
     console.log("Init");
   },
   getAll(){
     return Action.extend({
       execute(req, res){
-          console.log("getAll");
-          //Call
+          const data = this.controller.tests.tests;
+          this.controller.Call.find((err, docs)=>{
+            if(err){
+              console.log("Error");
+            }else{
+              console.log("No issue");
+            }
+          });
+          //res.status(200).json({data});
       }
     });
   }
